@@ -84,7 +84,8 @@
                 let li = document.createElement('li');
                 // li.innerText(value);
                 li.innerHTML = text.value;
-                ul.appendChild(li);
+                ul.appendChild(li, ul.children[0]);
+                text.value = '';
             }
         }
     }
