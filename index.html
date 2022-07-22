@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .box {
+            position: relative;
+            width: 400px;
+            text-align: center;
+            margin: 50px auto;
+        }
+
+        textarea {
+            resize: none;
+            width: 300px;
+            height: 150px;
+            font-size: 20px;
+            color: #333;
+            outline: none;
+            border: 2px solid #666;
+            border-radius: 10px;
+        }
+
+        ul {
+            position: relative;
+            top: 50px;
+            width: 350px;
+            height: 300px;
+            margin: 0 auto;
+            border: 1px solid #909090;
+            padding: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        li {
+            list-style: none;
+            width: 300px;
+            height: 50px;
+            background-color: #ccc;
+            border: #666 1px solid;
+            border-radius: 10px;
+            text-align: left;
+            padding: 5px;
+            overflow: hidden;
+            margin: 15px;
+        }
+
+        button {
+            position: absolute;
+            top: 155px;
+            right: 55px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <textarea name="" id="text" cols="30" rows="10" placeholder="请输入评论..."></textarea>
+        <button>发布</button>
+        <ul>
+
+        </ul>
+    </div>
+</body>
+<script>
+    let button = document.getElementsByTagName('button')[0];
+    let text = document.getElementById('text');
+    let ul = document.getElementsByTagName('ul')[0];
+    button.onclick = function () {
+        if (text.value == '') {
+            alert('输入内容不能为空');
+        } else {
+            if (ul.children.length <= 3) {
+                let li = document.createElement('li');
+                // li.innerText(value);
+                li.innerHTML = text.value;
+                ul.appendChild(li);
+            }
+        }
+    }
+</script>
+
+</html>
